@@ -6,22 +6,18 @@ class Main extends Component {
   constructor() {
     super();
 
-    this.state = {
-      switch: false,
-    };
-
     this.switchToggle = this.switchToggle.bind(this);
   }
 
   switchToggle() {
-    this.setState({ switch: !this.state.switch });
+    this.props.flipSwitch(!this.props.switch);
   }
 
   render() {
     return (
       <div>
         <Switch onToggle={this.switchToggle} />
-        <Display switch={this.state.switch} />
+        <Display switch={this.props.switch} />
       </div>
     );
   }
